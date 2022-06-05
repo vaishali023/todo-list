@@ -25,6 +25,9 @@ body{
   font-family: 'Poppins', sans-serif; */
 
 }
+h2{
+  text-align: center;;
+}
 .inputTask input{
     width: 85%;
     padding: 6px;
