@@ -9,29 +9,26 @@ inputEl.setAttribute('required', '');
 function deleteHandler(index) {
     const newTodos = todoItemList.filter((item, idx) => idx !== index);
     todoItemList = [...newTodos];
+    console.log(newTodos);
     addTask();
 }
 
-//event listeners
-addBtn.addEventListener("click", function() {
-    const todoItem = inputEl.value;
-    todoItemList.push(todoItem);
-    addTask();
-});
+
 
 ///functions
 function addTask(){
-    // listEl.innerHTML = "";
   
  const inputVal = inputEl.value;
  if(!inputVal){
      throw new Error("No Input provided");
  }
 
+ listEl.innerHTML="";
+
  todoItemList.forEach((item, idx) => {
 
  const todoItem = document.createElement("li");
- todoItem.innerHTML = `${inputVal}`;
+ todoItem.innerHTML = `${item}`;
  console.log(todoItem);
 
  const deleteBtn = document.createElement("span");
@@ -43,3 +40,10 @@ function addTask(){
  listEl.insertAdjacentElement("beforeend", todoItem);
 });
 }
+
+//event listeners
+addBtn.addEventListener("click", function() {
+    const todoItem = inputEl.value;
+    todoItemList.push(todoItem); 
+    addTask();
+});

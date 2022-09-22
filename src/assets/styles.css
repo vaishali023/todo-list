@@ -45,8 +45,8 @@ h2{
   background-color: #0047AB;
   color: #fff;
 }
-#todoList li{
-    list-style-type: none;
+.todoList li{
+    /* list-style-type: none; */
     height: 36px;
     margin-top: 6px;
     margin-bottom: 6px;
@@ -70,10 +70,10 @@ h2{
 }
 
 
-#todoList::-webkit-scrollbar {
+.todoList::-webkit-scrollbar {
     width: 0;
   }
-#todoList li {
+.todoList li {
   list-style: none;
   height: 45px;
   line-height: 45px;
@@ -87,7 +87,7 @@ h2{
 }
 
 
-#todoList li span {
+.todoList li span {
   position: absolute;
   right: -45px;
   width: 45px;
@@ -99,6 +99,6 @@ h2{
   transition: all 0.3s ease;
 }
 
-#todoList li:hover span {
+.todoList li:hover span {
   right: 0;
 }
