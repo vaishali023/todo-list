@@ -21,10 +21,9 @@ body{
   border-radius: 6px;
   overflow-y: hidden;
   overflow-x: hidden;
-  /* background-color: #ececec;
-  font-family: 'Poppins', sans-serif; */
 
 }
+
 h2{
   text-align: center;;
 }
@@ -46,7 +45,6 @@ h2{
   color: #fff;
 }
 .todoList li{
-    /* list-style-type: none; */
     height: 36px;
     margin-top: 6px;
     margin-bottom: 6px;
