@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -7,13 +9,13 @@ body{
     min-height: 100vh;
     display:flex;
     justify-content: center;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
     background: linear-gradient(to right, #83a4d4, #b6fbff);
 }
 #container{
   display: flex;
   width: 400px;
-  border: 1px solid grey;
+  border: 1px solid rgb(219, 219, 219);
   flex-direction: column;
   margin-top: auto;
   margin-bottom: auto;
@@ -21,11 +23,15 @@ body{
   border-radius: 6px;
   overflow-y: hidden;
   overflow-x: hidden;
-
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 h2{
-  text-align: center;;
+  text-align: center;
+}
+.inputTask{
+  display:flex;
+  justify-content: space-between;
 }
 .inputTask input{
     width: 85%;
@@ -50,9 +56,13 @@ h2{
     margin-bottom: 6px;
     overflow: hidden;
 }
+.todoList ol{
+  font-weight: 400;
+}
 .footer{
     display:flex;
     justify-content: space-between;
+    margin-top: 10px;
 }
 .footer button{
     border: none;
