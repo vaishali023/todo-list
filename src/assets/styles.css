@@ -50,12 +50,18 @@ h2{
   background-color: #0047AB;
   color: #fff;
 }
+
 .todoList li{
     height: 36px;
     margin-top: 6px;
     margin-bottom: 6px;
     overflow: hidden;
 }
+
+
+
+
+
 .todoList ol{
   font-weight: 400;
 }
@@ -81,18 +87,78 @@ h2{
 .todoList::-webkit-scrollbar {
     width: 0;
   }
-.todoList li {
-  list-style: none;
-  height: 45px;
-  line-height: 45px;
-  position: relative;
-  background: var(--main-grey);
-  margin-bottom: 8px;
-  border-radius: 3px;
-  padding-left: 15px;
-  cursor: default;
-  overflow: hidden;
-}
+  .todoList li {
+    position: relative;
+  
+    padding-left: 10px;
+    list-style: none;
+    height: 45px;
+    line-height: 45px;
+    background: var(--main-grey);
+    margin-bottom: 8px;
+    border-radius: 3px;
+    cursor: default;
+    overflow: hidden;
+
+
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+  
+  .todoList li .taskItem {
+    
+    display: flex;
+    align-items: center;
+    
+  }
+  
+  .todoList li .taskItem input[type="checkbox"] {
+    margin-right: 6px;
+  }
+  
+  .todoList li .checkbox {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .todoList li .checkbox.checked {
+    background-color: #0047AB;
+    border-color: #0047AB;
+  }
+  
+  .todoList li.completed .checkbox {
+    background-color: #0047AB;
+    border-color: #0047AB;
+  }
+  
+  .todoList li.completed .checkbox.checked {
+    background-color: #fff;
+    color: #0047AB;
+  }
+  
+  .todoList li .taskText {
+    /* position: absolute; */
+  grid-column: 2/3;
+  display: flex;
+  padding-left: 0.6rem;
+  flex-direction: row;
+  justify-content: left;
+  margin-left: 0;
+  height: 100%;
+  width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  
+
 
 
 .todoList li span {

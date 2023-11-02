@@ -28,31 +28,56 @@ function addTask() {
     throw new Error("No Input provided");
   }
 
-  todoItemList.push(inputVal);
+  todoItemList.push({ task: inputVal, completed: false });
   renderTaskList();
   updatePendingTask();
   inputEl.value = ""; // Clear the input field after adding the task
 }
 
-function renderTaskList() {
-  listEl.innerHTML = "";
-
-  todoItemList.forEach((item, idx) => {
-    const todoItem = document.createElement("li");
-    todoItem.textContent = item;
-
-    const deleteBtn = document.createElement("span");
-    deleteBtn.innerHTML = `<i class="fa fa-trash" aria-hidden="true"></i>`;
-
-    deleteBtn.addEventListener("click", () => deleteHandler(idx));
-    todoItem.appendChild(deleteBtn);
-
-    listEl.appendChild(todoItem);
-  });
+function toggleComplete(index) {
+  todoItemList[index].completed = !todoItemList[index].completed;
+  renderTaskList();
 }
-
+function renderTaskList() {
+    listEl.innerHTML = "";
+  
+    todoItemList.forEach((item, idx) => {
+      const todoItem = document.createElement("li");
+  
+      const taskItem = document.createElement("div");
+      taskItem.classList.add("taskItem");
+  
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.checked = item.completed;
+      checkbox.addEventListener("change", () => toggleComplete(idx));
+      taskItem.appendChild(checkbox);
+  
+      const taskText = document.createElement("span");
+      taskText.classList.add("taskText");
+      taskText.textContent = item.task;
+  
+      if (item.completed) {
+        taskText.style.textDecoration = "line-through";
+      }
+  
+      const deleteBtn = document.createElement("span");
+      deleteBtn.classList.add("deleteBtn");
+      deleteBtn.innerHTML = `<i class="fa fa-trash" aria-hidden="true"></i>`;
+      deleteBtn.addEventListener("click", () => deleteHandler(idx));
+      taskItem.appendChild(taskText);
+      taskItem.appendChild(deleteBtn);
+  
+      todoItem.appendChild(taskItem);
+  
+      listEl.appendChild(todoItem);
+    });
+  }
+  
+  
+  
 function updatePendingTask() {
-  const count = todoItemList.length;
+  const count = todoItemList.filter((item) => !item.completed).length;
   pendingTask.textContent = count.toString();
 }
 
